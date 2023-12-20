@@ -28,7 +28,17 @@ def be_run():
     this_path = os.path.dirname(__file__)
     parent_path = os.path.dirname(this_path)
     log_file = os.path.join(parent_path, "app.log")
-    init_database(parent_path)
+
+    # mySQL数据库连接配置
+    db_config = {
+        'host': 'localhost',
+        'user': 'root',
+        'password': 'password',
+        'database': 'bookstore'
+    }
+
+    # init_database(parent_path)
+    init_database(db_config)
 
     logging.basicConfig(filename=log_file, level=logging.ERROR)
     handler = logging.StreamHandler()
